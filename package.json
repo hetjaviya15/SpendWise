@@ -1,3 +1,4 @@
+
 {
   "name": "spendwise",
   "private": true,
@@ -23,6 +24,7 @@
     "vite": "latest"
   },
   "devDependencies": {
+    "@electron-forge/maker-dmg": "^8.0.1",
     "autoprefixer": "^10.4.21",
     "concurrently": "^10.0.6",
     "cross-env": "^7.0.3",
@@ -31,5 +33,15 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
     "wait-on": "^9.5.1"
+  },
+  "build": {
+    "appId": "com.spendwise.app",
+    "productName": "SpendWise",
+    "directories": {
+      "output": "release"
+    },
+    "mac": {
+      "target": "dmg"
+    }
   }
 }
