@@ -1,161 +1,218 @@
-# SpendWise — Personal Expense Tracker
+# SpendWise 💸
+### Track smarter. Spend better.
 
-**Track smarter. Spend better.**
+SpendWise is a desktop expense-tracking application built with **React, TypeScript, Vite, and Electron**. It helps users manage their daily expenses, monitor spending habits, organize transactions, and understand their financial activity through a clean and intuitive dashboard.
 
-SpendWise is a lightweight personal expense-tracking application built with **React** and **Electron**. It helps you record income and expenses, review your transaction history, and understand your spending with a clean, light-themed dashboard.
+Designed with simplicity in mind, SpendWise provides an easy way to keep track of personal finances without requiring an account, backend server, or internet connection for everyday use.
 
-Developed as a minor project for the **Application Development** course.
+---
 
-## Features
+## ✨ Features
 
-- **Dashboard:** View your all-time balance, selected-month income and expenses, category chart, and recent transactions.
-- **Transactions:** Add, edit, delete, search, and filter income and expense entries.
-- **Reports:** Explore monthly income vs. expenses, net savings, and expense breakdowns by category.
-- **Settings:** Select a display currency (INR, USD, EUR, or GBP) and reset saved transactions after confirmation.
-- **Local storage:** Transactions and preferences persist using browser `localStorage`; no account or backend is required.
-- **Light-mode UI:** A clean desktop-oriented interface with sidebar navigation.
+- **📊 Dashboard** – Get an overview of your financial activity, including income, expenses, and balance.
+- **💳 Transaction Management** – Add, view, and manage your financial transactions.
+- **📈 Reports & Analytics** – Understand your spending patterns through visual reports.
+- **⚙️ Settings** – Customize your application preferences, including currency.
+- **💾 Local Data Persistence** – Keep your financial data saved locally on your device.
+- **🎨 Clean User Interface** – Enjoy a modern, minimal, and easy-to-use light-mode interface.
+- **🖥️ Desktop Experience** – Built with Electron to provide a native desktop application experience.
+- **🌍 Multiple Currency Support** – Choose between INR, USD, EUR, and GBP.
 
-> **Currency note:** Changing the selected currency changes display formatting only. It does **not** convert amounts using exchange rates.
+---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
 | Technology | Purpose |
-| --- | --- |
-| React | User interface |
-| Vite | Development server and production build |
-| JavaScript | Application logic |
-| Tailwind CSS | Styling |
-| React Router | Page navigation |
-| Recharts | Financial charts |
-| Lucide React | Icons |
-| Electron | Desktop window and application shell |
-| localStorage | Local transaction and settings persistence |
+|---|---|
+| React | Building the user interface |
+| TypeScript | Type-safe development |
+| Vite | Frontend development and build tool |
+| Electron | Desktop application framework |
+| CSS | Application styling |
+| Local Storage | Local data persistence |
+| Electron Builder | Desktop application packaging |
 
-## Getting Started
+---
+
+## 📸 Application Screens
+
+SpendWise consists of four main sections:
+
+| Screen | Description |
+|---|---|
+| Dashboard | Overview of income, expenses, and balance |
+| Transactions | Manage and review transactions |
+| Reports | Visualize financial activity |
+| Settings | Manage application preferences |
+
+<!-- Add your application screenshots below -->
+
+### Dashboard
+<!-- ![Dashboard](screenshots/dashboard.png) -->
+
+### Transactions
+<!-- ![Transactions](screenshots/transactions.png) -->
+
+### Reports
+<!-- ![Reports](screenshots/reports.png) -->
+
+### Settings
+<!-- ![Settings](screenshots/settings.png) -->
+
+---
+
+## 🚀 Getting Started
+
+Follow these instructions to run SpendWise on your local machine.
 
 ### Prerequisites
 
-Install **Node.js** and **npm** on your computer.
+Make sure you have installed:
 
-### Installation
+- [Node.js](https://nodejs.org/)
+- npm (included with Node.js)
+- [Git](https://git-scm.com/)
 
-Clone your repository, enter the project directory, and install dependencies:
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/SpendWise.git
+git clone https://github.com/hetjaviya15/SpendWise.git
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
 cd SpendWise
+```
+
+### 3. Install Dependencies
+
+```bash
 npm install
 ```
 
-Replace `YOUR_USERNAME` with your GitHub username (and adjust the repository name if needed).
+### 4. Run the Application
 
-## Run the Desktop Application
-
-For the **two-terminal workflow** used in class:
-
-**Terminal 1 — Start the React development server**
-
-```bash
-npm run dev
-```
-
-Keep this terminal running. Vite serves the website at `http://127.0.0.1:5173`.
-
-**Terminal 2 — Launch Electron**
-
-```bash
-npm run electron
-```
-
-SpendWise opens in its desktop window and loads the React development server.
-
-**Alternative: Run both processes with one command**
+**Option A: Start everything with one command**
 
 ```bash
 npm run electron:dev
 ```
 
-**Run only the web version**
+**Option B: Run using two terminals**
+
+Terminal 1 – Start the Vite development server:
 
 ```bash
 npm run dev
 ```
 
-Then open the local URL shown in the terminal in your web browser.
+Terminal 2 – Start the Electron desktop application:
 
-## Other Commands
-
-| Command | Description |
-| --- | --- |
-| `npm run dev` | Start Vite development server |
-| `npm run electron` | Launch Electron (requires the Vite server running in development) |
-| `npm run electron:dev` | Start Vite and Electron together |
-| `npm run build` | Build the React frontend into `dist/` |
-| `npm run preview` | Preview the frontend production build |
-| `npm test` | Run Node-based project tests |
-| `npm run electron:package` | Build frontend and package Electron using electron-builder |
-
-## Application Screens
-
-### 1. Dashboard
-
-An overview of total balance, monthly income and expenses, recent transactions, and spending distribution.
-
-### 2. Transactions
-
-Manage income and expense records with a transaction form, editable entries, search, filters, and delete confirmation.
-
-### 3. Reports
-
-Review monthly figures and charts showing income, expenses, savings, and category-wise spending.
-
-### 4. Settings
-
-Choose how amounts are displayed and manage locally stored transactions.
-
-## How Data Is Stored
-
-SpendWise stores transactions and settings using **`localStorage`**. The Electron version currently uses the renderer's browser storage; it does **not** use an external database or a separate JSON file.
-
-- Data normally remains available across app restarts in the same browser or Electron profile.
-- The web browser and Electron may have **separate** stored data.
-- Clearing application/browser storage or using **Reset All Data** may permanently remove transactions.
-- There is no cloud synchronization, login, or automatic backup.
-
-## Project Structure
-
-```text
-SpendWise/
-├── electron.js                # Electron main process
-├── scripts/
-│   └── launch-electron.js     # Desktop development launcher
-├── src/
-│   ├── components/            # Reusable UI components
-│   ├── context/               # App state
-│   ├── pages/
-│   │   ├── Dashboard.jsx
-│   │   ├── Transactions.jsx
-│   │   ├── Reports.jsx
-│   │   └── Settings.jsx
-│   ├── services/
-│   │   └── storage.js         # localStorage access
-│   ├── utils/                 # Calculations, formatting, categories
-│   ├── App.jsx
-│   └── main.jsx
-├── tests/                     # Project tests
-├── package.json
-└── vite.config.js
+```bash
+npm run electron
 ```
 
-## Scope and Limitations
-
-SpendWise is designed for **personal tracking and educational use**, not banking or accounting. It does not connect to financial institutions, process payments, synchronize across devices, or perform currency conversion.
-
-## Author
-
-**Het Javiya**  
-Application Development — Minor Project
+The SpendWise desktop application should now launch on your machine.
 
 ---
 
-Made with React + Electron.
+## 📦 Build the Desktop Application
+
+To package SpendWise as a desktop application, run:
+
+```bash
+npm run electron:package
+```
+
+The generated application packages will be available inside the `release/` directory.
+
+For macOS, the project is configured to generate a DMG installer.
+
+> **Note:** The generated macOS package architecture depends on the build environment. Code signing may also be required for distributing the application to other users.
+
+---
+
+## 📁 Project Structure
+
+```text
+SpendWise/
+│
+├── src/                  # React application source code
+│
+├── public/               # Static assets
+│
+├── scripts/              # Development and launch scripts
+│
+├── electron.js           # Electron main process
+│
+├── index.html            # Application HTML entry point
+│
+├── package.json          # Project configuration and scripts
+│
+├── package-lock.json     # Dependency lock file
+│
+├── vite.config.ts        # Vite configuration
+│
+├── tsconfig.json         # TypeScript configuration
+│
+└── .gitignore            # Git ignored files
+```
+
+---
+
+## 🔒 Privacy & Data Storage
+
+SpendWise is designed as a local-first desktop application.
+
+- No account registration is required.
+- No external backend is required.
+- No third-party AI API is required.
+- Financial data is stored locally on the user's device.
+
+Your financial information stays on your device rather than being sent to an external application server.
+
+---
+
+## 🎯 Project Objective
+
+SpendWise was developed as a desktop application project to demonstrate the practical implementation of modern frontend technologies and desktop application development using Electron.
+
+The project focuses on providing a simple and functional personal expense management experience while applying concepts such as component-based architecture, TypeScript, local data persistence, and desktop application packaging.
+
+---
+
+## 🔮 Future Improvements
+
+Some possible enhancements for future versions include:
+
+- Export transactions to CSV or PDF.
+- Advanced expense categorization.
+- Monthly and yearly financial comparisons.
+- Budget limits and spending alerts.
+- Backup and restore functionality.
+- Improved financial analytics.
+
+---
+
+## 👨‍💻 Author
+
+**Het Javiya**
+
+Second-Year B.Tech Student – Computer Science & Artificial Intelligence
+
+Newton School of Technology, Rishihood University
+
+GitHub: [@hetjaviya15](https://github.com/hetjaviya15)
+
+---
+
+## 📄 License
+
+This project is developed for educational and learning purposes.
+
+---
+
+<p align="center">
+  **SpendWise – Track smarter. Spend better.** 💚
+</p>
